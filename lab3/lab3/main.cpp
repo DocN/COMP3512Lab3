@@ -3,7 +3,9 @@
 using namespace std;
 
 int main() {
-	Matrix * test = new Matrix(9);
+	int dimension = 9;
+	Matrix * test = new Matrix(dimension);
+	test->fillTester();
 	system("pause");
 	return 0;
 }
