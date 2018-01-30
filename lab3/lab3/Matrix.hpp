@@ -13,6 +13,7 @@ public:
 	void fillTester();
 	void printMatrix();
 	void set_Value(int, int, int);
+	int get_Value(int, int);
 
 private:
 	static const int DEFAULT_SIZE = 1;

@@ -42,11 +42,6 @@ bool Matrix::checkSquarable(int number) {
 	return true;
 }
 
-
-void Matrix::set_Value(int x, int y, int value) {
-	myMatrix[x][y] = value;
-}
-
 void Matrix::fillTester() {
 	for (int i = 0; i < matrixSize; i++) {
 		for (int j = 0; j < matrixSize; j++) {
@@ -62,4 +57,12 @@ void Matrix::printMatrix() {
 		}
 		cout << endl;
 	}
+}
+
+void Matrix::set_Value(int x, int y, int value) {
+	myMatrix[x][y] = value;
+}
+
+int Matrix::get_Value(int x, int y) {
+	return myMatrix[x][y];
 }
