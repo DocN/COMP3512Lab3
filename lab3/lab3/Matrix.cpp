@@ -10,6 +10,7 @@ using namespace std;
 Matrix::Matrix() {
 	myMatrix = new int*[DEFAULT_SIZE];
 	allocateArray(DEFAULT_SIZE);
+	matrixSize = DEFAULT_SIZE;
 }
 
 Matrix::Matrix(int A[], int n) {
@@ -65,4 +66,12 @@ void Matrix::set_Value(int x, int y, int value) {
 
 int Matrix::get_Value(int x, int y) {
 	return myMatrix[x][y];
+}
+
+void Matrix::clearArray() {
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < matrixSize; j++) {
+			myMatrix[i][j] = 0;
+		}
+	}
 }
