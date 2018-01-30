@@ -7,11 +7,12 @@ using namespace std;
 class Matrix {
 public:
 	Matrix();
-	Matrix(int);
+	Matrix(int A [], int n);
 	void allocateArray(int);
 	bool checkSquarable(int);
-	void set_Value(int, int, int);
 	void fillTester();
+	void printMatrix();
+	void set_Value(int, int, int);
 
 private:
 	static const int DEFAULT_SIZE = 1;

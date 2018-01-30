@@ -2,6 +2,8 @@
 #include "Matrix.hpp"
 #include <stdio.h>      /* printf */
 #include <math.h>       /* sqrt */
+#include <array>
+#include <vector>
 
 using namespace std;
 
@@ -10,18 +12,17 @@ Matrix::Matrix() {
 	allocateArray(DEFAULT_SIZE);
 }
 
-Matrix::Matrix(int dimension) {
-	myMatrix = new int*[dimension];
-
-	//check if it's a square otherwise implement it as a default size 
-	if (checkSquarable(dimension) && dimension >= 1) {
-		allocateArray(dimension);
-		matrixSize = dimension;
-		return;
+Matrix::Matrix(int A[], int n) {
+	int dimension = 1;
+	if (checkSquarable(n)) {
+		dimension = sqrt(1);
 	}
-	cout << "Invalid array dimension set as default " << DEFAULT_SIZE << endl;
-	allocateArray(DEFAULT_SIZE);
-	matrixSize = DEFAULT_SIZE;
+	else {
+		cout << "invalid number of elements, made 1 by 1 matrix " << endl;
+	}
+	myMatrix = new int*[dimension];
+	allocateArray(dimension);
+	matrixSize = dimension;
 }
 
 void Matrix::allocateArray(int dimension) {
@@ -51,5 +52,14 @@ void Matrix::fillTester() {
 		for (int j = 0; j < matrixSize; j++) {
 			myMatrix[i][j] = 1;
 		}
+	}
+}
+
+void Matrix::printMatrix() {
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < matrixSize; j++) {
+			cout << myMatrix[i][j];
+		}
+		cout << endl;
 	}
 }
