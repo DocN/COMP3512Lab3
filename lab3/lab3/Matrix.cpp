@@ -113,3 +113,33 @@ ostream& operator<<(ostream& os, const Matrix& theMatrix)
 	}
 	return os;
 }
+
+bool operator== (const Matrix &m1, const Matrix &m2) {
+	//check if they're the same size
+	if (m1.matrixSize == m2.matrixSize) {
+		for (int i = 0; i < m1.matrixSize; i++) {
+			for (int j = 0; j < m1.matrixSize; j++) {
+				//check each element to see if they're equal
+				if (!(m1.myMatrix[i][j] == m2.myMatrix[i][j])) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+bool operator!= (const Matrix &m1, const Matrix &m2) {
+	if (m1 == m2) {
+		return false;
+	}
+	return true;
+}
+
+bool operator< (const Matrix &m1, const Matrix &m2) {
+	if (m1.matrixSize < m2.matrixSize) {
+		return true;
+	}
+	return false;
+}

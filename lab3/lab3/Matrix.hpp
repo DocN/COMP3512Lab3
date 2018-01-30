@@ -21,6 +21,9 @@ public:
 	void fillMatrix(int A[], int);
 
 	friend ostream& operator<<(ostream& os, const Matrix& theMatrix);
+	friend bool operator== (const Matrix &m1, const Matrix &m2);
+	friend bool operator!= (const Matrix &m1, const Matrix &m2);
+	friend bool operator< (const Matrix &m1, const Matrix &m2);
 
 private:
 	static const int DEFAULT_SIZE = 1;
