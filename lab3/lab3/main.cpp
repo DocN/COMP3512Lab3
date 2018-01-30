@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Matrix.hpp"
+#include <array>
+
 using namespace std;
 
 int main() {

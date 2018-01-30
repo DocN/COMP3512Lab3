@@ -16,7 +16,7 @@ Matrix::Matrix() {
 Matrix::Matrix(int A[], int n) {
 	int dimension = 1;
 	if (checkSquarable(n)) {
-		dimension = sqrt(1);
+		dimension = sqrt(n);
 	}
 	else {
 		cout << "invalid number of elements, made 1 by 1 matrix " << endl;
@@ -30,6 +30,13 @@ Matrix::Matrix(int dimension) {
 	myMatrix = new int*[dimension];
 	allocateArray(dimension);
 	matrixSize = dimension;
+}
+
+Matrix::~Matrix() {
+	for (int i = 0; i < matrixSize; i++) {
+		delete myMatrix[i];
+	}
+	delete myMatrix;
 }
 
 void Matrix::allocateArray(int dimension) {

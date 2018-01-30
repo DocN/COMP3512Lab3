@@ -9,6 +9,7 @@ public:
 	Matrix();
 	Matrix(int A [], int n);
 	Matrix(int);
+	~Matrix();
 	void allocateArray(int);
 	bool checkSquarable(int);
 	void fillTester();
