@@ -20,6 +20,8 @@ public:
 	Matrix * identity();
 	void fillMatrix(int A[], int);
 
+	friend ostream& operator<<(ostream& os, const Matrix& theMatrix);
+
 private:
 	static const int DEFAULT_SIZE = 1;
 	int  ** myMatrix;

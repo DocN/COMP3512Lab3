@@ -102,3 +102,14 @@ void Matrix::fillMatrix(int A[], int n) {
 Matrix * Matrix::identity() {
 	return new Matrix(matrixSize);
 }
+
+ostream& operator<<(ostream& os, const Matrix& theMatrix)
+{
+	for (int i = 0; i < theMatrix.matrixSize; i++) {
+		for (int j = 0; j < theMatrix.matrixSize; j++) {
+			os << theMatrix.myMatrix[i][j] << " ";
+		}
+		os << endl;
+	}
+	return os;
+}
