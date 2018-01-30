@@ -26,6 +26,12 @@ Matrix::Matrix(int A[], int n) {
 	matrixSize = dimension;
 }
 
+Matrix::Matrix(int dimension) {
+	myMatrix = new int*[dimension];
+	allocateArray(dimension);
+	matrixSize = dimension;
+}
+
 void Matrix::allocateArray(int dimension) {
 	for (int i = 0; i < dimension; i++) {
 		myMatrix[i] = new int[dimension];
@@ -74,4 +80,8 @@ void Matrix::clearArray() {
 			myMatrix[i][j] = 0;
 		}
 	}
+}
+
+Matrix * Matrix::identity() {
+	return new Matrix(matrixSize);
 }
