@@ -24,6 +24,7 @@ Matrix::Matrix(int A[], int n) {
 	myMatrix = new int*[dimension];
 	allocateArray(dimension);
 	matrixSize = dimension;
+	fillMatrix(A, n);
 }
 
 Matrix::Matrix(int dimension) {
@@ -67,7 +68,7 @@ void Matrix::fillTester() {
 void Matrix::printMatrix() {
 	for (int i = 0; i < matrixSize; i++) {
 		for (int j = 0; j < matrixSize; j++) {
-			cout << myMatrix[i][j];
+			cout << myMatrix[i][j] << " ";
 		}
 		cout << endl;
 	}
@@ -89,6 +90,15 @@ void Matrix::clearArray() {
 	}
 }
 
+void Matrix::fillMatrix(int A[], int n) {
+	int arrayCount = 0;
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < matrixSize; j++) {
+			myMatrix[i][j] = A[arrayCount];
+			arrayCount++;
+		}
+	}
+}
 Matrix * Matrix::identity() {
 	return new Matrix(matrixSize);
 }

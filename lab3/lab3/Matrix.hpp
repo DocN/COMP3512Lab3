@@ -18,6 +18,8 @@ public:
 	int get_Value(int, int);
 	void clearArray();
 	Matrix * identity();
+	void fillMatrix(int A[], int);
+
 private:
 	static const int DEFAULT_SIZE = 1;
 	int  ** myMatrix;
