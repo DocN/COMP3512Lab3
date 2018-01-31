@@ -51,6 +51,7 @@ int main() {
 	}
 
 	//testing deincrement and identity
+	cout << "testing equals operator" << endl;
 	Matrix * newMatrix = test->identity();
 	(*newMatrix)--;
 	cout << *newMatrix;
@@ -68,6 +69,11 @@ int main() {
 	cout << "test matrix values " << endl;
 	cout << matrix2;
 
+	//testing + overloaded operator
+	cout << *test;
+	cout << "testing + overloaded operator" << endl;
+	cout << (matrix2 + (*test));
+	cout << (matrix2 - (*test));
 	system("pause");
 	return 0;
 }

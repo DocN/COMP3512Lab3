@@ -213,7 +213,7 @@ void Matrix::operator--(int) {
 
 }
 
-Matrix& Matrix::operator=(Matrix rhs) {
+Matrix& Matrix::operator=(Matrix &rhs) {
 	swap(*this, rhs); 
 	return *this; 
 }
@@ -249,6 +249,30 @@ Matrix& Matrix::operator-=(Matrix& rhs) {
 }
 
 Matrix& operator+(const Matrix& a, const Matrix& b) {
-
+	Matrix * newMatrix = new Matrix(a.matrixSize);
+	if (a.matrixSize == b.matrixSize) {
+		for (int i = 0; i < a.matrixSize; i++) {
+			for (int j = 0; j < a.matrixSize; j++) {
+				int newVal = a.myMatrix[i][j] + b.myMatrix[i][j];
+				newMatrix->myMatrix[i][j] = newVal;
+			}
+		}
+	}
+	return *newMatrix;
 }
+
+Matrix& operator-(const Matrix& a, const Matrix& b) {
+	Matrix * newMatrix = new Matrix(a.matrixSize);
+	if (a.matrixSize == b.matrixSize) {
+		for (int i = 0; i < a.matrixSize; i++) {
+			for (int j = 0; j < a.matrixSize; j++) {
+				int newVal = a.myMatrix[i][j] - b.myMatrix[i][j];
+				newMatrix->myMatrix[i][j] = newVal;
+			}
+		}
+	}
+	return *newMatrix;
+}
+
+
 

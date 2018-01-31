@@ -31,10 +31,11 @@ public:
 	void operator++(int);
 	void operator--();
 	void operator--(int);
-	Matrix& operator=(Matrix rhs);
+	Matrix& operator=(Matrix &rhs);
 	Matrix& operator+=(Matrix& rhs);
 	Matrix& operator-=(Matrix& rhs);
 	friend Matrix& operator+(const Matrix& a, const Matrix& b);
+	friend Matrix& operator-(const Matrix& a, const Matrix& b);
 
 private:
 	static const int DEFAULT_SIZE = 1;
