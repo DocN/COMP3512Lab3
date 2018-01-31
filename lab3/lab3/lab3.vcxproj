@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="matrixTester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.hpp" />

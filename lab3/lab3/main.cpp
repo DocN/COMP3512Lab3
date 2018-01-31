@@ -3,7 +3,7 @@
 #include <array>
 
 using namespace std;
-
+/*
 int main() {
 	int foo[9] = { 16, 2, 77, 40, 12071, 200,100,1000,1 };
 	Matrix * test = new Matrix(foo, 9);
@@ -51,6 +51,7 @@ int main() {
 	}
 
 	//testing deincrement and identity
+	cout << "testing equals operator" << endl;
 	Matrix * newMatrix = test->identity();
 	(*newMatrix)--;
 	cout << *newMatrix;
@@ -58,7 +59,23 @@ int main() {
 	//testing copy swap
 	Matrix matrix2 = *newMatrix;
 	cout << matrix2;
-	matrix2 += *newMatrix;
+	//test summation equals 
+	matrix2 += (*test);
+	cout << "test matrix values " << endl;
+	cout << matrix2;
+
+	//test negation equals 
+	matrix2 -= (*test);
+	cout << "test matrix values " << endl;
+	cout << matrix2;
+
+	//testing + overloaded operator
+	cout << *test;
+	cout << "testing + overloaded operator" << endl;
+	cout << (matrix2 + (*test));
+	cout << (matrix2 - (*test));
 	system("pause");
 	return 0;
 }
+
+*/

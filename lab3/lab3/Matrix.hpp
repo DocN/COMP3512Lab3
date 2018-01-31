@@ -12,7 +12,6 @@ public:
 	~Matrix();
 	void allocateArray(int);
 	bool checkSquarable(int);
-	void fillTester();
 	void printMatrix();
 	void set_Value(int, int, int);
 	int get_Value(int, int);
@@ -31,8 +30,11 @@ public:
 	void operator++(int);
 	void operator--();
 	void operator--(int);
-	Matrix& operator=(Matrix rhs);
-	Matrix & Matrix::operator+=(Matrix &rhs);
+	Matrix& operator=(Matrix &rhs);
+	Matrix& operator+=(Matrix& rhs);
+	Matrix& operator-=(Matrix& rhs);
+	friend Matrix& operator+(const Matrix& a, const Matrix& b);
+	friend Matrix& operator-(const Matrix& a, const Matrix& b);
 
 private:
 	static const int DEFAULT_SIZE = 1;

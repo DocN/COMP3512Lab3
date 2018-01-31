@@ -11,6 +11,8 @@ Matrix::Matrix() {
 	myMatrix = new int*[DEFAULT_SIZE];
 	allocateArray(DEFAULT_SIZE);
 	matrixSize = DEFAULT_SIZE;
+	int A[DEFAULT_SIZE] = { 0 };
+	fillMatrix(A, DEFAULT_SIZE);
 }
 
 Matrix::Matrix(int A[], int n) {
@@ -57,14 +59,6 @@ bool Matrix::checkSquarable(int number) {
 	return true;
 }
 
-void Matrix::fillTester() {
-	for (int i = 0; i < matrixSize; i++) {
-		for (int j = 0; j < matrixSize; j++) {
-			myMatrix[i][j] = 1;
-		}
-	}
-}
-
 void Matrix::printMatrix() {
 	for (int i = 0; i < matrixSize; i++) {
 		for (int j = 0; j < matrixSize; j++) {
@@ -99,6 +93,7 @@ void Matrix::fillMatrix(int A[], int n) {
 		}
 	}
 }
+
 Matrix * Matrix::identity() {
 	Matrix * newIdentity = new Matrix(matrixSize);
 	for (int i = 0; i < newIdentity->matrixSize; i++) {
@@ -213,24 +208,65 @@ void Matrix::operator--(int) {
 
 }
 
-Matrix& Matrix::operator=(Matrix rhs) {
+Matrix& Matrix::operator=(Matrix &rhs) {
 	swap(*this, rhs); 
 	return *this; 
 }
 
-Matrix& Matrix::operator+=(Matrix &rhs) {
-	if (matrixSize != rhs.matrixSize) {
-		cout << "invalid summation returning this" << endl;
+Matrix& Matrix::operator+=(Matrix& rhs) {
+	if (rhs.matrixSize != matrixSize) {
+		cout << "invalid summation, matrixes aren't the same size" << endl;
 	}
 	else {
 		for (int i = 0; i < matrixSize; i++) {
 			for (int j = 0; j < matrixSize; j++) {
-				int newVal = get_Value(i, j) + rhs.get_Value(i, j);
+				int newVal = myMatrix[i][j] + rhs.myMatrix[i][j]; 
+				set_Value(i, j, newVal);
+			 }
+		}
+	}
+	return *this;
+}
+
+Matrix& Matrix::operator-=(Matrix& rhs) {
+	if (rhs.matrixSize != matrixSize) {
+		cout << "invalid summation, matrixes aren't the same size" << endl;
+	}
+	else {
+		for (int i = 0; i < matrixSize; i++) {
+			for (int j = 0; j < matrixSize; j++) {
+				int newVal = myMatrix[i][j] - rhs.myMatrix[i][j];
 				set_Value(i, j, newVal);
 			}
 		}
 	}
 	return *this;
+}
+
+Matrix& operator+(const Matrix& a, const Matrix& b) {
+	Matrix * newMatrix = new Matrix(a.matrixSize);
+	if (a.matrixSize == b.matrixSize) {
+		for (int i = 0; i < a.matrixSize; i++) {
+			for (int j = 0; j < a.matrixSize; j++) {
+				int newVal = a.myMatrix[i][j] + b.myMatrix[i][j];
+				newMatrix->myMatrix[i][j] = newVal;
+			}
+		}
+	}
+	return *newMatrix;
+}
+
+Matrix& operator-(const Matrix& a, const Matrix& b) {
+	Matrix * newMatrix = new Matrix(a.matrixSize);
+	if (a.matrixSize == b.matrixSize) {
+		for (int i = 0; i < a.matrixSize; i++) {
+			for (int j = 0; j < a.matrixSize; j++) {
+				int newVal = a.myMatrix[i][j] - b.myMatrix[i][j];
+				newMatrix->myMatrix[i][j] = newVal;
+			}
+		}
+	}
+	return *newMatrix;
 }
 
 
