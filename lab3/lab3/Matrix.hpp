@@ -32,6 +32,7 @@ public:
 	void operator--();
 	void operator--(int);
 	Matrix& operator=(Matrix rhs);
+	Matrix & Matrix::operator+=(Matrix &rhs);
 
 private:
 	static const int DEFAULT_SIZE = 1;

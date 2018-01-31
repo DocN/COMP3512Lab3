@@ -218,4 +218,20 @@ Matrix& Matrix::operator=(Matrix rhs) {
 	return *this; 
 }
 
+Matrix& Matrix::operator+=(Matrix &rhs) {
+	if (matrixSize != rhs.matrixSize) {
+		cout << "invalid summation returning this" << endl;
+	}
+	else {
+		for (int i = 0; i < matrixSize; i++) {
+			for (int j = 0; j < matrixSize; j++) {
+				int newVal = get_Value(i, j) + rhs.get_Value(i, j);
+				set_Value(i, j, newVal);
+			}
+		}
+	}
+	return *this;
+}
+
+
 

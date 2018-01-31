@@ -58,6 +58,7 @@ int main() {
 	//testing copy swap
 	Matrix matrix2 = *newMatrix;
 	cout << matrix2;
+	matrix2 += *newMatrix;
 	system("pause");
 	return 0;
 }
