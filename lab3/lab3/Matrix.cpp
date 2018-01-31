@@ -194,5 +194,23 @@ void Matrix::operator++(int) {
 	}
 }
 
+void Matrix::operator--() {
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < matrixSize; j++) {
+			int currentVal = get_Value(i, j) - 1;
+			set_Value(i, j, currentVal);
+		}
+	}
+}
+
+void Matrix::operator--(int) {
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < matrixSize; j++) {
+			int currentVal = get_Value(i, j) - 1;
+			set_Value(i, j, currentVal);
+		}
+	}
+
+}
 
 

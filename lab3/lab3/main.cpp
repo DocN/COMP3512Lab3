@@ -52,7 +52,7 @@ int main() {
 
 
 	Matrix * newMatrix = test->identity();
-	(*newMatrix)++;
+	(*newMatrix)--;
 	cout << *newMatrix;
 	system("pause");
 	return 0;
