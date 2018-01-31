@@ -100,7 +100,18 @@ void Matrix::fillMatrix(int A[], int n) {
 	}
 }
 Matrix * Matrix::identity() {
-	return new Matrix(matrixSize);
+	Matrix * newIdentity = new Matrix(matrixSize);
+	for (int i = 0; i < newIdentity->matrixSize; i++) {
+		for (int j = 0; j < newIdentity->matrixSize; j++) {
+			if (i == j) {
+				newIdentity->set_Value(i, j, 1);
+			}
+			else {
+				newIdentity->set_Value(i, j, 0);
+			}
+		}
+	}
+	return newIdentity;
 }
 
 ostream& operator<<(ostream& os, const Matrix& theMatrix)
@@ -143,3 +154,25 @@ bool operator< (const Matrix &m1, const Matrix &m2) {
 	}
 	return false;
 }
+
+bool operator<= (const Matrix &m1, const Matrix &m2) {
+	if (m1.matrixSize < m2.matrixSize || m1 == m2) {
+		return true;
+	}
+	return false;
+}
+
+bool operator> (const Matrix &m1, const Matrix &m2) {
+	if (m1.matrixSize > m2.matrixSize) {
+		return true;
+	}
+	return false;
+}
+
+bool operator>= (const Matrix &m1, const Matrix &m2) {
+	if (m1.matrixSize > m2.matrixSize || m1 == m2) {
+		return true;
+	}
+	return false;
+}
+
