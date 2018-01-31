@@ -11,6 +11,8 @@ Matrix::Matrix() {
 	myMatrix = new int*[DEFAULT_SIZE];
 	allocateArray(DEFAULT_SIZE);
 	matrixSize = DEFAULT_SIZE;
+	int A[DEFAULT_SIZE] = { 0 };
+	fillMatrix(A, DEFAULT_SIZE);
 }
 
 Matrix::Matrix(int A[], int n) {
@@ -57,14 +59,6 @@ bool Matrix::checkSquarable(int number) {
 	return true;
 }
 
-void Matrix::fillTester() {
-	for (int i = 0; i < matrixSize; i++) {
-		for (int j = 0; j < matrixSize; j++) {
-			myMatrix[i][j] = 1;
-		}
-	}
-}
-
 void Matrix::printMatrix() {
 	for (int i = 0; i < matrixSize; i++) {
 		for (int j = 0; j < matrixSize; j++) {
@@ -99,6 +93,7 @@ void Matrix::fillMatrix(int A[], int n) {
 		}
 	}
 }
+
 Matrix * Matrix::identity() {
 	Matrix * newIdentity = new Matrix(matrixSize);
 	for (int i = 0; i < newIdentity->matrixSize; i++) {

@@ -12,7 +12,6 @@ public:
 	~Matrix();
 	void allocateArray(int);
 	bool checkSquarable(int);
-	void fillTester();
 	void printMatrix();
 	void set_Value(int, int, int);
 	int get_Value(int, int);
