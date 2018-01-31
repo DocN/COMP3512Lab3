@@ -58,6 +58,16 @@ int main() {
 	//testing copy swap
 	Matrix matrix2 = *newMatrix;
 	cout << matrix2;
+	//test summation equals 
+	matrix2 += (*test);
+	cout << "test matrix values " << endl;
+	cout << matrix2;
+
+	//test negation equals 
+	matrix2 -= (*test);
+	cout << "test matrix values " << endl;
+	cout << matrix2;
+
 	system("pause");
 	return 0;
 }

@@ -218,4 +218,37 @@ Matrix& Matrix::operator=(Matrix rhs) {
 	return *this; 
 }
 
+Matrix& Matrix::operator+=(Matrix& rhs) {
+	if (rhs.matrixSize != matrixSize) {
+		cout << "invalid summation, matrixes aren't the same size" << endl;
+	}
+	else {
+		for (int i = 0; i < matrixSize; i++) {
+			for (int j = 0; j < matrixSize; j++) {
+				int newVal = myMatrix[i][j] + rhs.myMatrix[i][j]; 
+				set_Value(i, j, newVal);
+			 }
+		}
+	}
+	return *this;
+}
+
+Matrix& Matrix::operator-=(Matrix& rhs) {
+	if (rhs.matrixSize != matrixSize) {
+		cout << "invalid summation, matrixes aren't the same size" << endl;
+	}
+	else {
+		for (int i = 0; i < matrixSize; i++) {
+			for (int j = 0; j < matrixSize; j++) {
+				int newVal = myMatrix[i][j] - rhs.myMatrix[i][j];
+				set_Value(i, j, newVal);
+			}
+		}
+	}
+	return *this;
+}
+
+Matrix& operator+(const Matrix& a, const Matrix& b) {
+
+}
 
