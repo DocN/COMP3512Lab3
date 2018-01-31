@@ -213,4 +213,9 @@ void Matrix::operator--(int) {
 
 }
 
+Matrix& Matrix::operator=(Matrix rhs) {
+	swap(*this, rhs); 
+	return *this; 
+}
+
 

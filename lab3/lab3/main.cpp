@@ -50,10 +50,14 @@ int main() {
 		cout << "test1 is not less than test2" << endl;
 	}
 
-
+	//testing deincrement and identity
 	Matrix * newMatrix = test->identity();
 	(*newMatrix)--;
 	cout << *newMatrix;
+
+	//testing copy swap
+	Matrix matrix2 = *newMatrix;
+	cout << matrix2;
 	system("pause");
 	return 0;
 }
