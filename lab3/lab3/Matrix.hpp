@@ -18,6 +18,7 @@ public:
 	void clearArray();
 	Matrix * identity();
 	void fillMatrix(int A[], int);
+	void Matrix::copier(Matrix & m1, Matrix const & rhs);
 
 	friend ostream& operator<<(ostream& os, const Matrix& theMatrix);
 	friend bool operator== (const Matrix &m1, const Matrix &m2);
@@ -26,11 +27,11 @@ public:
 	friend bool operator<= (const Matrix &m1, const Matrix &m2);
 	friend bool operator> (const Matrix &m1, const Matrix &m2);
 	friend bool operator>= (const Matrix &m1, const Matrix &m2);
-	void operator++();
-	void operator++(int);
-	void operator--();
-	void operator--(int);
-	Matrix& operator=(Matrix &rhs);
+	Matrix& operator++();
+	Matrix& operator++(int);
+	Matrix& operator--();
+	Matrix& operator--(int);
+	Matrix& Matrix::operator=(const Matrix &rhs);
 	Matrix& operator+=(Matrix& rhs);
 	Matrix& operator-=(Matrix& rhs);
 	friend Matrix& operator+(const Matrix& a, const Matrix& b);
@@ -40,5 +41,6 @@ private:
 	static const int DEFAULT_SIZE = 1;
 	int  ** myMatrix;
 	int matrixSize;
+	
 };
 

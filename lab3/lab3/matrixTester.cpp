@@ -105,13 +105,15 @@ int main() {
 	//testing pre and post increment
 	cout << "testing pre increment " << endl;
 	cout << *test2;
-	++(*test2);
-	cout << *test2;
+	cout << (++(*test2));
 
 	cout << "testing post increment " << endl;
 	cout << *test2;
-	(*test2)++;
-	cout << *test2;
+	cout << ((*test2)++);
+	if (((*test2)++) == (*test2)) {
+		cout << "they're equal test2 test2++" << endl;
+		cout << *test2;
+	}
 	cout << endl;
 
 	//testing pre and post increment
@@ -128,8 +130,16 @@ int main() {
 
 	//testing equals operator
 	cout << "testing equals operator " << endl;
-	Matrix test6 = *test2;
+	Matrix * test7 = test2->identity();
+	Matrix test6 = *test7;
 	cout << test6;
+	cout << *test2;
+
+	cout << "test here" << endl;
+	test6.set_Value(1, 1, 12);
+	cout << test6;
+	cout << *test2;
+
 	cout << endl;
 
 	//testing += opreator
@@ -140,13 +150,29 @@ int main() {
 	test6 += *test2;
 	cout << test6;
 
-	//testing += opreator
+	//testing -= opreator
 	cout << "testing -= operator " << endl;
 	cout << test6;
 	cout << *test2;
-	cout << "sum of the two" << endl;
+	cout << "subtraction of the two" << endl;
 	test6 -= *test2;
 	cout << test6;
+	cout << *test2;
+
+
+	//testing + operator
+	cout << "testing + operator " << endl;
+	cout << test6;
+	cout << *test2;
+
+	cout << (test6)+(*test2);
+
+	//testing - operator
+	cout << "testing - operator " << endl;
+	cout << test6;
+	cout << *test2;
+
+	cout << (test6)-(*test2);
 
 	system("pause");
 	return 0;
